@@ -39,6 +39,9 @@ public class UserService {
         }
 
     }
+    public void deleteAccount(){
+        userRepository.deleteById(user.getId());
+    }
 
     public void deleteMobile(){
         this.user.setMobile("null");

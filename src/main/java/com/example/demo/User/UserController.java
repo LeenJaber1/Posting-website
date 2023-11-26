@@ -15,14 +15,14 @@ public class UserController {
 
     @GetMapping(path = "/ProfileInformation")
     public String showAllUserInfo(){
-        //UserInfo userInfo = userService.getUser();
-        //String username = userInfo.getUsername();
-        //String mobile = userInfo.getMobile();
-        //String email = userInfo.getEmail();
-        //if(mobile.equals(null)){
-            //mobile = "No current phone number is found ";
+        UserInfo userInfo = userService.getUser();
+        String username = userInfo.getUsername();
+        String mobile = userInfo.getMobile();
+        String email = userInfo.getEmail();
+        if(mobile.equals(null)){
+            mobile = "No current phone number is found ";
 
-    //}
+    }
         return  "hello ";//"Email : " + email + "\n"   + userInfo.getPassword()+ "\n" ;
     }
 
@@ -45,10 +45,18 @@ public class UserController {
     }
 
     @PutMapping(path = "/updatePassword/{id}")
-    public String UpdatePassword(@PathVariable Long id, @RequestParam(required = false) String newPassword){
-        return "yok";
+    public void UpdatePassword(@PathVariable Long id, @RequestParam(required = false) String newPassword){
+
         //userService.changePassword(Password);
     }
+
+    @DeleteMapping(path = "/DeleteAccount/{id}")
+    public void deleteAccount(@PathVariable Long id){
+        //userService.deleteAccount();
+    }
+
+
+
 
 
 
