@@ -20,7 +20,7 @@ public class UserInfo {
     @Column(name = "userID")
     private Long id;
 
-    @Column(name = "Username", unique = true , nullable = false)
+    @Column(name = "Username", unique = true )
     public String username;
 
     @Column(name = "email" , unique = true , nullable = false)
@@ -29,7 +29,7 @@ public class UserInfo {
     private String password;
     @Column(name = "mobile" , unique = true )
     private String mobile;
-    @Column(name = "Date of birth"  , nullable = false)
+    @Column(name = "Date of birth"  )
     private LocalDate dateofbirth;
     public UserInfo() {
     }

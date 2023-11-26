@@ -13,14 +13,12 @@ public class UserService {
     private UserRepository userRepository;
     private UserInfo user;
     @Autowired
-    public UserService(UserRepository userRepositoryr){
+    public UserService(UserRepository userRepository){
         this.userRepository = userRepository;
 
     }
 
-    public UserService(UserInfo user) {
-        this.user = user;
-    }
+
 
 
     //works for updating and adding a new phone number
@@ -32,13 +30,7 @@ public class UserService {
 
     }
 
-    public UserInfo getUser() {
-        return user;
-    }
 
-    public void deleteAccount(){
-        userRepository.deleteById(user.getId());
-    }
 
     public void updateEmail(String email){
         UserInfo check = userRepository.findUserInfoByemail(email).orElseThrow(() -> new IllegalStateException("email is already taken!"));
@@ -61,11 +53,15 @@ public class UserService {
         }
         this.user.setPassword(pass);
     }
+    public UserInfo getUser() {
+        return user;
+    }
 
     public void changeUsername(String newuser){
         UserInfo check = userRepository.findUserInfoByusername(newuser).orElseThrow(() -> new IllegalStateException("User name  is already taken!"));
         if(newuser!=null){
             this.user.setUsername(newuser);
+
         }
     }
 
