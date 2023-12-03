@@ -22,7 +22,8 @@ public class UserController {
         if(mobile.equals(null)){
             mobile = "No current phone number is found ";
 
-    }
+
+        }
         return  "hello ";//"Email : " + email + "\n"   + userInfo.getPassword()+ "\n" ;
     }
 

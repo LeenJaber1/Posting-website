@@ -1,8 +1,14 @@
 package com.example.demo.User;
 
+import com.example.demo.Comment.Comment;
+import com.example.demo.Post.Post;
+import com.example.demo.Profilepicture.ProfilePic;
+import com.example.demo.Reaction.Reaction;
+import com.example.demo.Relationship.Relationship;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table
@@ -31,6 +37,35 @@ public class UserInfo {
     private String mobile;
     @Column(name = "Date of birth"  )
     private LocalDate dateofbirth;
+
+    @OneToMany(mappedBy = "userInfoPicture")
+    private Set<ProfilePic> profilePicSet;
+
+
+    @OneToMany(mappedBy = "userInfoRelationships")
+    private Set<Relationship> relationshipSet;
+
+    @OneToMany(mappedBy = "userInfoPosts")
+    private Set<Post> postsSet;
+
+
+    @OneToMany(mappedBy = "userid")
+    private Set<Comment> commentsSet;
+
+    @OneToMany(mappedBy = "usereaction")
+    private Set<Reaction> reactionSet;
+
+
+
+
+
+
+    public Set<ProfilePic> getProfilePicSet() {
+        return profilePicSet;
+    }
+
+
+
     public UserInfo() {
     }
 
